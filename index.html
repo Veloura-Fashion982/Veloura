@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELOURA – Where Comfort Meets Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #E8A0A0;
+  --blush: #F5D5D5;
+  --deep: #2D1515;
+  --nude: #F4EDE8;
+  --cream: #FBF7F5;
+  --mocha: #7A5050;
+  --accent: #C05C5C;
+  --gold: #C9A050;
+  --text: #1E1010;
+  --muted: #967070;
+  --white: #FFFFFF;
+  --border: rgba(160,100,100,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ─── TOPBAR ─── */
+.topbar{background:var(--deep);color:var(--blush);text-align:center;padding:9px 20px;font-size:12px;letter-spacing:1.2px;font-weight:500}
+.topbar strong{color:var(--gold)}
+.topbar span{margin:0 8px;opacity:.5}
+
+/* ─── HEADER ─── */
+header{background:#fff;position:sticky;top:0;z-index:900;border-bottom:1px solid var(--border)}
+.hdr{max-width:1380px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:30px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--deep);letter-spacing:5px;text-decoration:none;flex-shrink:0}
+.logo em{color:var(--accent);font-style:italic}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text);font-size:12.5px;font-weight:500;letter-spacing:.7px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all .25s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);border-color:var(--accent)}
+.nav-links a.sale-link{color:var(--accent)}
+.hdr-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.search-wrap{display:flex;align-items:center;background:var(--nude);border-radius:24px;padding:7px 14px;gap:7px}
+.search-wrap input{border:none;background:none;outline:none;font-family:'DM Sans',sans-serif;font-size:13px;width:150px;color:var(--text)}
+.icon-btn{background:none;border:none;cursor:pointer;font-size:17px;color:var(--text);width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .2s;position:relative}
+.icon-btn:hover{background:var(--nude);color:var(--accent)}
+.badge{position:absolute;top:-4px;right:-4px;background:var(--accent);color:#fff;border-radius:50%;width:16px;height:16px;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700;border:2px solid #fff}
+
+/* ─── HERO ─── */
+.hero{position:relative;height:92vh;min-height:580px;max-height:780px;overflow:hidden;display:flex}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=1600&q=80') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(30,10,10,.82) 0%,rgba(30,10,10,.5) 50%,rgba(30,10,10,.1) 100%)}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:0 80px;max-width:680px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:22px}
+.hero-tag::before,.hero-tag::after{content:'';width:24px;height:1px;background:var(--gold)}
+h1.hero-h{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:1.05;color:#fff;font-weight:300;margin-bottom:22px}
+h1.hero-h em{font-style:italic;color:var(--rose)}
+.hero-desc{color:rgba(245,213,213,.75);font-size:15.5px;line-height:1.75;margin-bottom:36px;max-width:420px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-pri{background:var(--accent);color:#fff;border:none;padding:15px 36px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block}
+.btn-pri:hover{background:#a84545;transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,92,92,.45)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:15px 36px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-badge-pill{position:absolute;bottom:40px;right:60px;background:#fff;border-radius:100px;padding:14px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 40px rgba(0,0,0,.2);z-index:2}
+.badge-num{font-size:26px;font-weight:800;color:var(--accent);line-height:1}
+.badge-txt{font-size:11px;color:var(--mocha);line-height:1.4;font-weight:500}
+.badge-txt strong{display:block;color:var(--text)}
+
+/* ─── STRIP ─── */
+.strip{background:var(--nude);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip-inner{max-width:1380px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:10px}
+.strip-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mocha)}
+.strip-item img{width:22px;height:22px;object-fit:contain}
+.strip-item strong{color:var(--text);font-weight:600}
+
+/* ─── SECTION HEAD ─── */
+.sec-head{text-align:center;padding:64px 20px 36px}
+.sec-sub{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;color:var(--deep);line-height:1.2}
+.sec-title em{font-style:italic;color:var(--accent)}
+.sec-rule{width:56px;height:2px;background:linear-gradient(90deg,var(--rose),var(--accent));margin:16px auto 0;border-radius:2px}
+
+/* ─── CATEGORIES ─── */
+.cat-grid{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:14px;padding:0 40px 70px}
+.cat-card{border-radius:14px;overflow:hidden;cursor:pointer;position:relative;text-decoration:none}
+.cat-card:first-child{grid-row:span 2}
+.cat-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.cat-card:first-child .cat-img{height:520px}
+.cat-card:not(:first-child) .cat-img{height:246px}
+.cat-card:hover .cat-img{transform:scale(1.06)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,8,8,.65) 0%,rgba(20,8,8,.1) 60%);transition:all .3s}
+.cat-card:hover .cat-overlay{background:linear-gradient(0deg,rgba(20,8,8,.75) 0%,rgba(20,8,8,.2) 60%)}
+.cat-label{position:absolute;bottom:0;left:0;right:0;padding:20px 18px}
+.cat-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;display:block;margin-bottom:2px}
+.cat-count{font-size:11px;color:rgba(245,213,213,.8);letter-spacing:.5px}
+.cat-arrow{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;opacity:0;transition:opacity .3s}
+.cat-card:hover .cat-arrow{opacity:1}
+
+/* ─── PRODUCTS ─── */
+.products-section{background:#fff;padding-bottom:70px}
+.filter-row{max-width:1380px;margin:0 auto;padding:0 40px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.flabel{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.ftag{padding:7px 18px;border-radius:24px;border:1.5px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--mocha);cursor:pointer;transition:all .22s;letter-spacing:.3px}
+.ftag:hover,.ftag.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.prod-grid{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:0 40px}
+.pcard{border-radius:14px;overflow:hidden;background:var(--cream);cursor:pointer;transition:transform .3s,box-shadow .3s;position:relative}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(45,21,21,.11)}
+.pcard:hover .qadd{opacity:1;transform:translateY(0)}
+.pthumb{position:relative;overflow:hidden;aspect-ratio:3/4}
+.pthumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover .pthumb img{transform:scale(1.05)}
+.pbadge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff}
+.pbadge.bs{background:var(--deep)}
+.pbadge.nw{background:#4A7C59}
+.pbadge.sl{background:#C07A3A}
+.wish-btn{position:absolute;top:10px;right:10px;background:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px;box-shadow:0 2px 12px rgba(0,0,0,.1);transition:all .25s;display:flex;align-items:center;justify-content:center}
+.wish-btn:hover{background:var(--accent);color:#fff}
+.qadd{position:absolute;bottom:0;left:0;right:0;background:var(--deep);color:#fff;border:none;padding:13px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(6px);transition:all .28s}
+.qadd:hover{background:var(--accent)}
+.pinfo{padding:15px 16px 18px}
+.pbrand{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pname{font-size:14px;font-weight:500;color:var(--text);margin-bottom:7px;line-height:1.4}
+.psizes{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap}
+.sz{width:22px;height:22px;border:1px solid rgba(120,80,80,.25);border-radius:3px;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;transition:all .18s}
+.sz:hover{border-color:var(--accent);color:var(--accent)}
+.pprice{display:flex;align-items:center;gap:8px}
+.pcur{font-size:16px;font-weight:700;color:var(--deep)}
+.pold{font-size:12.5px;color:var(--muted);text-decoration:line-through}
+.pdis{font-size:11px;color:#C07A3A;font-weight:700}
+.prat{display:flex;align-items:center;gap:4px;margin-top:6px}
+.stars{font-size:11px;color:var(--gold);letter-spacing:-1px}
+.rcnt{font-size:11px;color:var(--muted)}
+
+/* ─── BANNER STRIP ─── */
+.banner-strip{display:grid;grid-template-columns:1fr 1fr;height:460px;overflow:hidden}
+.bstrip-item{position:relative;overflow:hidden;cursor:pointer}
+.bstrip-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.bstrip-item:hover img{transform:scale(1.04)}
+.bstrip-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,8,8,.65) 0%,rgba(20,8,8,.15) 100%)}
+.bstrip-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:50px}
+.bs-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+.bs-title{font-family:'Cormorant Garamond',serif;font-size:40px;color:#fff;font-weight:300;line-height:1.15;margin-bottom:16px}
+.bs-title em{font-style:italic;color:var(--rose)}
+.bs-cta{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-bottom:1.5px solid rgba(255,255,255,.5);padding-bottom:4px;cursor:pointer;transition:all .25s;text-decoration:none}
+.bs-cta:hover{border-color:#fff;gap:14px}
+
+/* ─── PROMO BANNER ─── */
+.promo{position:relative;height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.promo-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1600&q=80') center/cover no-repeat;filter:brightness(.45)}
+.promo-content{position:relative;z-index:2;text-align:center;max-width:680px;padding:0 30px}
+.promo-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px}
+.promo-h{font-family:'Cormorant Garamond',serif;font-size:58px;color:#fff;font-weight:300;line-height:1.1;margin-bottom:18px}
+.promo-h em{font-style:italic;color:var(--rose)}
+.promo-p{color:rgba(245,213,213,.75);font-size:15px;margin-bottom:30px;line-height:1.7}
+.promo-code{display:inline-block;border:1.5px dashed rgba(201,160,80,.6);padding:10px 26px;border-radius:4px;color:var(--gold);font-weight:700;letter-spacing:3px;margin-bottom:28px;font-size:14px;cursor:pointer}
+.promo-code:hover{background:rgba(201,160,80,.1)}
+
+/* ─── TESTIMONIALS ─── */
+.testi{padding:70px 40px;background:var(--nude)}
+.testi-inner{max-width:1380px;margin:0 auto}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.rcard{background:#fff;border-radius:14px;padding:28px;border:1px solid rgba(200,150,150,.12);position:relative;overflow:hidden}
+.rcard::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:90px;line-height:.8;color:var(--blush);position:absolute;top:14px;right:20px;font-weight:300;pointer-events:none}
+.rstars{color:var(--gold);font-size:13px;letter-spacing:-1px;margin-bottom:12px}
+.rtext{font-size:14px;line-height:1.72;color:var(--text);margin-bottom:18px;font-style:italic;position:relative;z-index:1}
+.reviewer{display:flex;align-items:center;gap:12px}
+.ravatar{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.rname{font-weight:600;font-size:13px;color:var(--deep)}
+.rtag{font-size:11px;color:var(--muted);margin-top:2px}
+.verified{color:#5C9E68;font-weight:600}
+
+/* ─── LOOKBOOK / INSTAGRAM ─── */
+.lookbook{padding:70px 0}
+.lb-inner{max-width:1380px;margin:0 auto;padding:0 40px}
+.lb-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:36px}
+.lb-item{border-radius:10px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer}
+.lb-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.lb-item:hover img{transform:scale(1.1)}
+.lb-hover{position:absolute;inset:0;background:rgba(45,21,21,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;font-size:22px;color:#fff}
+.lb-item:hover .lb-hover{opacity:1}
+
+/* ─── SIZE GUIDE ─── */
+.size-sec{background:#fff;padding:70px 40px}
+.size-inner{max-width:900px;margin:0 auto}
+.stabs{display:flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0}
+.stab{flex:1;padding:12px;background:transparent;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;color:var(--mocha);transition:all .2s}
+.stab.on{background:var(--deep);color:#fff}
+.stbl{width:100%;border-collapse:collapse;font-size:13px}
+.stbl th{background:var(--nude);padding:12px 16px;text-align:center;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--mocha);border:1px solid var(--border)}
+.stbl td{padding:12px 16px;text-align:center;border:1px solid var(--border);color:var(--text)}
+.stbl tr:hover td{background:var(--nude)}
+
+/* ─── NEWSLETTER ─── */
+.newsletter{position:relative;overflow:hidden;padding:90px 40px}
+.nl-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=80') center/cover;filter:brightness(.35)}
+.nl-inner{position:relative;z-index:2;max-width:560px;margin:0 auto;text-align:center}
+.nl-inner h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#fff;margin-bottom:14px}
+.nl-inner h2 em{font-style:italic;color:var(--rose)}
+.nl-inner p{color:rgba(245,213,213,.75);font-size:15px;margin-bottom:30px;line-height:1.7}
+.email-row{display:flex;background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.email-row input{flex:1;padding:15px 20px;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text)}
+.email-row button{background:var(--deep);color:#fff;border:none;padding:15px 28px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap}
+.email-row button:hover{background:var(--accent)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--deep);color:rgba(245,213,213,.65);padding:60px 40px 28px}
+.ft-grid{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(245,213,213,.08)}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;letter-spacing:5px;text-decoration:none;display:block;margin-bottom:16px}
+.ft-logo em{color:var(--accent);font-style:italic}
+.ft-about{font-size:13.5px;line-height:1.75;max-width:260px;margin-bottom:22px}
+.socials{display:flex;gap:10px}
+.soc{width:36px;height:36px;border-radius:50%;border:1px solid rgba(245,213,213,.18);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .25s;background:transparent;color:rgba(245,213,213,.65)}
+.soc:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.ft-col h4{color:#fff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.ft-col ul{list-style:none}
+.ft-col li{margin-bottom:11px}
+.ft-col a{text-decoration:none;color:rgba(245,213,213,.6);font-size:13px;transition:color .25s}
+.ft-col a:hover{color:var(--rose)}
+.ft-bottom{max-width:1380px;margin:24px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(245,213,213,.35)}
+.pay-icons{display:flex;gap:8px;font-size:18px}
+
+/* ─── CART DRAWER ─── */
+.overlay{position:fixed;inset:0;background:rgba(30,10,10,.52);z-index:990;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:390px;background:#fff;z-index:1000;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-14px 0 60px rgba(30,10,10,.14)}
+.drawer.open{transform:translateX(0)}
+.dhead{padding:22px 24px;border-bottom:1px solid var(--nude);display:flex;justify-content:space-between;align-items:center}
+.dhead h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--deep)}
+.dbody{flex:1;overflow-y:auto;padding:18px 24px}
+.citem{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--nude);animation:cin .3s ease}
+@keyframes cin{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.citem-img{width:72px;height:90px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.citem-info{flex:1}
+.citem-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.citem-sub{font-size:11px;color:var(--muted);margin-bottom:8px}
+.citem-price{font-size:15px;font-weight:700;color:var(--deep)}
+.qty{display:flex;align-items:center;gap:0;border:1.5px solid var(--border);border-radius:4px;width:fit-content;margin-top:8px;overflow:hidden}
+.qbtn{background:none;border:none;width:28px;height:28px;cursor:pointer;font-size:15px;color:var(--mocha);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.qbtn:hover{background:var(--nude)}
+.qval{font-size:13px;font-weight:600;padding:0 9px;color:var(--text)}
+.dfoot{padding:18px 24px;border-top:1px solid var(--nude)}
+.dtotal{display:flex;justify-content:space-between;margin-bottom:14px;font-size:14px;color:var(--mocha)}
+.dtotal strong{font-size:19px;font-weight:700;color:var(--deep)}
+.dchk{width:100%;background:var(--deep);color:#fff;border:none;padding:16px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-bottom:10px}
+.dchk:hover{background:var(--accent)}
+.dcont{width:100%;background:transparent;color:var(--mocha);border:1.5px solid var(--border);padding:12px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .2s}
+.dcont:hover{border-color:var(--mocha)}
+.empty-bag{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-bag .ei{font-size:54px;margin-bottom:14px}
+.empty-bag p{font-size:14px;line-height:1.6}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--deep);color:#fff;padding:12px 26px;border-radius:30px;font-size:13px;font-weight:500;box-shadow:0 10px 34px rgba(30,10,10,.3);z-index:2000;transition:transform .3s;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero-content{padding:0 36px}
+  h1.hero-h{font-size:46px}
+  .cat-grid{grid-template-columns:1fr 1fr;padding:0 20px 50px}
+  .cat-card:first-child{grid-column:span 2;grid-row:auto}
+  .cat-card:first-child .cat-img{height:260px}
+  .prod-grid{grid-template-columns:1fr 1fr;padding:0 20px}
+  .banner-strip{grid-template-columns:1fr;height:auto}
+  .bstrip-item{height:300px}
+  .reviews{grid-template-columns:1fr}
+  .lb-grid{grid-template-columns:repeat(3,1fr)}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .drawer{width:100%}
+  .hdr{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🎉 SUMMER SALE LIVE! Flat 30% OFF — Use <strong>VELOURA30</strong> &nbsp;<span>|</span>&nbsp; Free Shipping on ₹599+ 🚚 &nbsp;<span>|</span>&nbsp; COD Available
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a class="logo" href="#">VEL<em>ORA</em></a>
+    <nav class="nav-links">
+      <a href="#" class="active">New In</a>
+      <a href="#" onclick="filter('bra',this);return false">Bras</a>
+      <a href="#" onclick="filter('panty',this);return false">Panties</a>
+      <a href="#" onclick="filter('sleep',this);return false">Sleepwear</a>
+      <a href="#" onclick="filter('sport',this);return false">Activewear</a>
+      <a href="#" onclick="filter('set',this);return false">Sets & Combos</a>
+      <a href="#" class="sale-link">🔥 Sale</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="search-wrap">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search styles…">
+      </div>
+      <button class="icon-btn" title="Wishlist">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button class="icon-btn" title="Account">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="icon-btn" title="Cart" onclick="toggleCart()">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="badge" id="cbadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Summer Collection 2025</div>
+    <h1 class="hero-h">Wear Your<br><em>Confidence</em><br>Every Day</h1>
+    <p class="hero-desc">Thoughtfully crafted innerwear for every woman. Premium comfort, beautiful design — because you deserve the best.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-pri">Shop Now →</a>
+      <a href="#categories" class="btn-ghost">Explore Collection</a>
+    </div>
+  </div>
+  <div class="hero-badge-pill">
+    <div>
+      <div class="badge-num">50K+</div>
+    </div>
+    <div class="badge-txt">
+      <strong>Happy Customers</strong>
+      ★★★★★ 4.8 Rating
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">🚚 <span><strong>Free Delivery</strong> on orders ₹599+</span></div>
+    <div class="strip-item">🔄 <span><strong>Easy Returns</strong> within 15 days</span></div>
+    <div class="strip-item">🔒 <span><strong>100% Secure</strong> payments</span></div>
+    <div class="strip-item">⭐ <span><strong>4.8★ Rating</strong> 50K+ reviews</span></div>
+    <div class="strip-item">🎁 <span><strong>Gift Wrapping</strong> available</span></div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="sec-head">
+    <div class="sec-sub">✦ Browse by Category</div>
+    <h2 class="sec-title">Shop Your <em>Style</em></h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="cat-grid">
+
+    <a class="cat-card" href="#" onclick="filter('bra',null);return false">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=700&q=80" alt="Bras">
+      <div class="cat-overlay"></div>
+      <div class="cat-label">
+        <span class="cat-name">Bras</span>
+        <span class="cat-count">120+ styles</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a class="cat-card" href="#" onclick="filter('panty',null);return false">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&q=80" alt="Panties">
+      <div class="cat-overlay"></div>
+      <div class="cat-label">
+        <span class="cat-name">Panties</span>
+        <span class="cat-count">200+ styles</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a class="cat-card" href="#" onclick="filter('sleep',null);return false">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=500&q=80" alt="Sleepwear">
+      <div class="cat-overlay"></div>
+      <div class="cat-label">
+        <span class="cat-name">Sleepwear</span>
+        <span class="cat-count">80+ styles</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a class="cat-card" href="#" onclick="filter('sport',null);return false">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=80" alt="Activewear">
+      <div class="cat-overlay"></div>
+      <div class="cat-label">
+        <span class="cat-name">Activewear</span>
+        <span class="cat-count">60+ styles</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a class="cat-card" href="#" onclick="filter('set',null);return false">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1551803091-e20673f15770?w=500&q=80" alt="Sets">
+      <div class="cat-overlay"></div>
+      <div class="cat-label">
+        <span class="cat-name">Sets</span>
+        <span class="cat-count">50+ sets</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="sec-head">
+    <div class="sec-sub">✦ Trending Now</div>
+    <h2 class="sec-title">Most <em>Loved</em> Styles</h2>
+    <div class="sec-rule"></div>
+  </div>
+
+  <div class="filter-row">
+    <span class="flabel">Filter:</span>
+    <button class="ftag on" onclick="filter('all',this)">All</button>
+    <button class="ftag" onclick="filter('bra',this)">Bras</button>
+    <button class="ftag" onclick="filter('panty',this)">Panties</button>
+    <button class="ftag" onclick="filter('sleep',this)">Sleepwear</button>
+    <button class="ftag" onclick="filter('sport',this)">Activewear</button>
+    <button class="ftag" onclick="filter('set',this)">Sets</button>
+  </div>
+
+  <div class="prod-grid" id="pgrid"></div>
+</section>
+
+<!-- BANNER STRIP -->
+<section class="banner-strip">
+  <div class="bstrip-item">
+    <img src="https://images.unsplash.com/photo-1529139574466-a303027614b2?w=900&q=80" alt="Summer Edit">
+    <div class="bstrip-overlay"></div>
+    <div class="bstrip-content">
+      <div class="bs-tag">✦ New In</div>
+      <h3 class="bs-title">Summer <em>Edit</em><br>is Here</h3>
+      <a href="#products" class="bs-cta">Shop Now →</a>
+    </div>
+  </div>
+  <div class="bstrip-item">
+    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80" alt="Mega Sale">
+    <div class="bstrip-overlay"></div>
+    <div class="bstrip-content">
+      <div class="bs-tag">✦ Limited Offer</div>
+      <h3 class="bs-title">Up to <em>50% Off</em><br>This Week</h3>
+      <a href="#products" class="bs-cta">Grab the Deal →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo">
+  <div class="promo-bg"></div>
+  <div class="promo-content">
+    <div class="promo-tag">✦ Limited Time Offer</div>
+    <h2 class="promo-h">Mega Sale is<br><em>Live Now!</em></h2>
+    <p class="promo-p">Up to 50% off on our premium innerwear collections. Don't miss India's biggest comfort sale.</p>
+    <div class="promo-code" onclick="copyCode()">VELOURA50</div>
+    <br>
+    <a href="#products" class="btn-pri">Shop the Sale →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="testi-inner">
+    <div class="sec-head" style="padding-top:0">
+      <div class="sec-sub">✦ Customer Love</div>
+      <h2 class="sec-title">What They're <em>Saying</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="reviews">
+      <div class="rcard">
+        <div class="rstars">★★★★★</div>
+        <p class="rtext">The cotton bras from Velora are absolutely amazing! So comfortable for all-day wear. The sizing is spot-on and the quality is premium.</p>
+        <div class="reviewer">
+          <img class="ravatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Priya">
+          <div>
+            <div class="rname">Priya Sharma</div>
+            <div class="rtag">Delhi · <span class="verified">✓ Verified Buyer</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rstars">★★★★★</div>
+        <p class="rtext">Finally found my perfect fit! The size guide is so accurate. Beautiful packaging and delivery was super fast — ordered again already!</p>
+        <div class="reviewer">
+          <img class="ravatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="Meera">
+          <div>
+            <div class="rname">Meera Patel</div>
+            <div class="rtag">Mumbai · <span class="verified">✓ Verified Buyer</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rstars">★★★★★</div>
+        <p class="rtext">The seamless sports bra is a total game-changer for my workouts. Excellent support, zero discomfort. I've bought 3 colors already!</p>
+        <div class="reviewer">
+          <img class="ravatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&q=80" alt="Ananya">
+          <div>
+            <div class="rname">Ananya Gupta</div>
+            <div class="rtag">Bengaluru · <span class="verified">✓ Verified Buyer</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOKBOOK / INSTAGRAM -->
+<section class="lookbook">
+  <div class="lb-inner">
+    <div class="sec-head" style="padding-top:0">
+      <div class="sec-sub">✦ @velora.in</div>
+      <h2 class="sec-title">Style <em>Inspiration</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="lb-grid">
+      <div class="lb-item"><img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=400&q=80" alt="look1"><div class="lb-hover">📸</div></div>
+      <div class="lb-item"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80" alt="look2"><div class="lb-hover">📸</div></div>
+      <div class="lb-item"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&q=80" alt="look3"><div class="lb-hover">📸</div></div>
+      <div class="lb-item"><img src="https://images.unsplash.com/photo-1546961342-ea5f62d5a27b?w=400&q=80" alt="look4"><div class="lb-hover">📸</div></div>
+      <div class="lb-item"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="look5"><div class="lb-hover">📸</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZE GUIDE -->
+<section class="size-sec">
+  <div class="size-inner">
+    <div class="sec-head" style="padding-top:0">
+      <div class="sec-sub">✦ Find Your Fit</div>
+      <h2 class="sec-title">Size <em>Guide</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="stabs">
+      <button class="stab on" onclick="stab('bra',this)">Bra Sizes</button>
+      <button class="stab" onclick="stab('bottom',this)">Bottom Sizes</button>
+      <button class="stab" onclick="stab('sleep',this)">Sleepwear</button>
+    </div>
+    <div id="stabContent"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="nl-bg"></div>
+  <div class="nl-inner">
+    <h2>Get <em>10% Off</em><br>Your First Order! 💌</h2>
+    <p>Subscribe for exclusive deals, new arrivals, style tips and early access to sales.</p>
+    <div class="email-row">
+      <input type="email" placeholder="Your email address…" id="emailInput">
+      <button onclick="subscribe()">Subscribe →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <a class="ft-logo" href="#">VEL<em>ORA</em></a>
+      <p class="ft-about">India's most loved innerwear brand. Designed for comfort, crafted with love — celebrating every body, every day.</p>
+      <div class="socials">
+        <button class="soc">f</button>
+        <button class="soc">in</button>
+        <button class="soc">tw</button>
+        <button class="soc">yt</button>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Bras</a></li>
+        <li><a href="#">Panties</a></li>
+        <li><a href="#">Sleepwear</a></li>
+        <li><a href="#">Activewear</a></li>
+        <li><a href="#">Sale 🔥</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 Velora. All rights reserved. Made with ❤️ in India</span>
+    <div class="pay-icons">💳 📱 🏦 💰</div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="dhead">
+    <h3>Your Bag 🛍️</h3>
+    <button class="icon-btn" onclick="toggleCart()" style="font-size:20px">✕</button>
+  </div>
+  <div class="dbody" id="dbody">
+    <div class="empty-bag" id="emptyBag">
+      <div class="ei">🛍️</div>
+      <p>Your bag is empty.<br>Add some beautiful styles!</p>
+    </div>
+  </div>
+  <div class="dfoot" id="dfoot" style="display:none">
+    <div class="dtotal"><span>Subtotal</span><strong id="dtotal">₹0</strong></div>
+    <button class="dchk">Proceed to Checkout →</button>
+    <button class="dcont" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="tmsg">Added!</span></div>
+
+<script>
+// ── PRODUCT DATA ──
+const products = [
+  {id:1,name:"Lace T-Shirt Bra",price:649,old:999,off:35,cat:"bra",sizes:["32B","34B","36C","38C"],badge:"bs",blabel:"🔥 Best Seller",rating:4.8,rev:1240,
+   img:"https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=80"},
+  {id:2,name:"High-Waist Seamless Brief",price:349,old:549,off:36,cat:"panty",sizes:["S","M","L","XL"],badge:"nw",blabel:"✦ New",rating:4.7,rev:890,
+   img:"https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=500&q=80"},
+  {id:3,name:"Satin Sleep Set",price:1299,old:1899,off:32,cat:"sleep",sizes:["S","M","L"],badge:"sl",blabel:"🏷️ Sale",rating:4.9,rev:567,
+   img:"https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=500&q=80"},
+  {id:4,name:"Seamless Sports Bra",price:799,old:1199,off:33,cat:"sport",sizes:["XS","S","M","L"],badge:"nw",blabel:"✦ New",rating:4.8,rev:2100,
+   img:"https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=80"},
+  {id:5,name:"Romantic Lace Bra & Brief Set",price:1599,old:2499,off:36,cat:"set",sizes:["32C","34C","36D"],badge:"bs",blabel:"🔥 Best Seller",rating:4.9,rev:445,
+   img:"https://images.unsplash.com/photo-1551803091-e20673f15770?w=500&q=80"},
+  {id:6,name:"Cotton Wireless Comfort Bra",price:549,old:849,off:35,cat:"bra",sizes:["32A","34B","36C","38D"],badge:"",blabel:"",rating:4.6,rev:3200,
+   img:"https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&q=80"},
+  {id:7,name:"Bikini Panty — Pack of 3",price:699,old:1099,off:36,cat:"panty",sizes:["S","M","L","XL","XXL"],badge:"sl",blabel:"🏷️ Sale",rating:4.7,rev:1870,
+   img:"https://images.unsplash.com/photo-1596389582079-f5cd96c6e5e2?w=500&q=80"},
+  {id:8,name:"Floral Satin Sleep Dress",price:999,old:1499,off:33,cat:"sleep",sizes:["S","M","L","XL"],badge:"nw",blabel:"✦ New",rating:4.8,rev:678,
+   img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80"},
+];
+
+let cart=[], timer;
+
+function renderProducts(list){
+  document.getElementById('pgrid').innerHTML = list.map(p=>`
+    <div class="pcard">
+      <div class="pthumb">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.badge?`<span class="pbadge ${p.badge}">${p.blabel}</span>`:''}
+        <button class="wish-btn" onclick="wish(${p.id})">🤍</button>
+        <button class="qadd" onclick="addCart(${p.id})">+ Add to Bag</button>
+      </div>
+      <div class="pinfo">
+        <div class="pbrand">VELOURA</div>
+        <div class="pname">${p.name}</div>
+        <div class="psizes">${p.sizes.map(s=>`<span class="sz">${s}</span>`).join('')}</div>
+        <div class="pprice">
+          <span class="pcur">₹${p.price}</span>
+          <span class="pold">₹${p.old}</span>
+          <span class="pdis">${p.off}% off</span>
+        </div>
+        <div class="prat">
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}</span>
+          <span class="rcnt">(${p.rev.toLocaleString()})</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filter(cat, btn){
+  if(btn){
+    document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+  const list = cat==='all'? products : products.filter(p=>p.cat===cat);
+  renderProducts(list);
+  document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function addCart(id){
+  const p=products.find(x=>x.id===id);
+  const ex=cart.find(x=>x.id===id);
+  if(ex) ex.qty++; else cart.push({...p,qty:1});
+  updateCart();
+  toast(`✓ ${p.name} added to bag!`);
+}
+
+function updateCart(){
+  const total=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cbadge').textContent=total;
+  const body=document.getElementById('dbody');
+  const foot=document.getElementById('dfoot');
+  const empty=document.getElementById('emptyBag');
+  if(!cart.length){
+    body.innerHTML='';
+    body.appendChild(empty);
+    empty.style.display='block';
+    foot.style.display='none';
+    return;
+  }
+  empty.style.display='none';
+  foot.style.display='block';
+  body.innerHTML=cart.map(it=>`
+    <div class="citem">
+      <img class="citem-img" src="${it.img}" alt="${it.name}">
+      <div class="citem-info">
+        <div class="citem-name">${it.name}</div>
+        <div class="citem-sub">Size: M</div>
+        <div class="citem-price">₹${it.price}</div>
+        <div class="qty">
+          <button class="qbtn" onclick="chgQty(${it.id},-1)">−</button>
+          <span class="qval">${it.qty}</span>
+          <button class="qbtn" onclick="chgQty(${it.id},1)">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('dtotal').textContent=`₹${sub.toLocaleString()}`;
+}
+
+function chgQty(id,d){
+  const it=cart.find(x=>x.id===id);
+  if(!it) return;
+  it.qty+=d;
+  if(it.qty<=0) cart=cart.filter(x=>x.id!==id);
+  updateCart();
+}
+
+function toggleCart(){
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+function wish(id){
+  const p=products.find(x=>x.id===id);
+  toast(`❤️ ${p.name} saved to wishlist!`);
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('tmsg').textContent=msg;
+  t.classList.add('show');
+  clearTimeout(timer);
+  timer=setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+function subscribe(){
+  const v=document.getElementById('emailInput').value;
+  if(v) toast('🎉 Subscribed! Check your email for 10% off!');
+}
+
+function copyCode(){
+  toast('✓ Code VELOURA50 copied!');
+}
+
+// ── SIZE TABLES ──
+const sizeData={
+  bra:`<table class="stbl"><thead><tr><th>Size</th><th>Band (in)</th><th>Cup</th><th>Bust (cm)</th><th>Body Type</th></tr></thead><tbody>
+    <tr><td>32A</td><td>30–32</td><td>A</td><td>80–83</td><td>Petite</td></tr>
+    <tr><td>34B</td><td>32–34</td><td>B</td><td>87–90</td><td>Regular</td></tr>
+    <tr><td>36C</td><td>34–36</td><td>C</td><td>93–96</td><td>Regular</td></tr>
+    <tr><td>38D</td><td>36–38</td><td>D</td><td>99–102</td><td>Full</td></tr>
+    <tr><td>40DD</td><td>38–40</td><td>DD</td><td>105–108</td><td>Full Plus</td></tr>
+  </tbody></table>`,
+  bottom:`<table class="stbl"><thead><tr><th>Size</th><th>Waist (in)</th><th>Hip (in)</th><th>Indian Size</th></tr></thead><tbody>
+    <tr><td>XS</td><td>24–26</td><td>33–35</td><td>S</td></tr>
+    <tr><td>S</td><td>26–28</td><td>35–37</td><td>M</td></tr>
+    <tr><td>M</td><td>28–30</td><td>37–39</td><td>L</td></tr>
+    <tr><td>L</td><td>30–32</td><td>39–41</td><td>XL</td></tr>
+    <tr><td>XL</td><td>32–34</td><td>41–43</td><td>XXL</td></tr>
+  </tbody></table>`,
+  sleep:`<table class="stbl"><thead><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Height</th></tr></thead><tbody>
+    <tr><td>S</td><td>32–34</td><td>52</td><td>5'0"–5'3"</td></tr>
+    <tr><td>M</td><td>34–36</td><td>53</td><td>5'3"–5'6"</td></tr>
+    <tr><td>L</td><td>36–38</td><td>54</td><td>5'6"–5'8"</td></tr>
+    <tr><td>XL</td><td>38–40</td><td>55</td><td>5'8"–5'10"</td></tr>
+  </tbody></table>`
+};
+
+function stab(type, btn){
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('stabContent').innerHTML=sizeData[type];
+}
+
+// ── INIT ──
+renderProducts(products);
+document.getElementById('stabContent').innerHTML=sizeData.bra;
+</script>
+</body>
+</html>
